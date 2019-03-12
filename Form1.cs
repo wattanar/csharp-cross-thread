@@ -22,14 +22,14 @@ namespace WindowsFormsApp9
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Thread background = new Thread(Delay);
+            Thread background = new Thread(() => Delay(10));
             background.IsBackground = true;
             background.Start();
         }
 
-        private void Delay()  
+        private void Delay(int x)  
         {
-            for (int i = 0; i < 10000; i++)
+            for (int i = x; i < 10000; i++)
             {
                 if (label1.InvokeRequired)
                 {
